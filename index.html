@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models"/>
+  <meta property="og:url" content="https://attendandexcite.github.io/attend-and-excite/"/>
+  <meta property="og:image" content="static/images/og_tag_header_image.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>All Things ViTs</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/elephant.jpeg">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">All Things ViTs: Understanding and Interpreting Attention in Vision</h1>
+        </div>
+    </div>
+  </div>   
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+		<div class="is-size-4 publication-authors">
+            <span class="author-block"><a href="https://hila-chefer.github.io/" target="_blank">Hila Chefer</a><sup>1</sup>,</span>
+			<span class="author-block"><a href="https://sayak.dev/" target="_blank">Sayak Paul</a><sup>2</sup></span>
+          </div>
+		  <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Tel Aviv University, Google <sup>2</sup>Hugging Face
+            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!--span class="link-block">
+                <a href="https://arxiv.org/abs/2301.13826" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span -->
+              
+              <span class="link-block">
+                <a href="https://github.com/all-things-vits" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+             <!--span class="link-block">
+              <a href=""  target="_blank"
+                 class="external-link button is-normal is-rounded">
+                <span class="icon">
+                    <i class="fas fa-infinity"></i>
+                </span>
+                <span>Colab</span>
+              </a>
+             </span -->
+            
+            <span class="link-block">
+              <a href="https://huggingface.co/all-things-vits"  target="_blank"
+                 class="external-link button is-normal is-rounded">
+                <span class="icon">
+                    <i class="fas fa-laptop"></i>
+                </span>
+                <span>Demo</span>
+              </a>
+             </span>
+           
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <!-- <div class="hero-body"> -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.jpg" alt="All_Things_ViTs" width="750px"/>
+      
+      <h2 class="subtitle">
+	In this tutorial, we explore different ways to leverage attention in vision. From left to right: (i) attention can be used to explain the predictions by the model (e.g., CLIP for an image-text pair) (ii) By manipulating the attention-based explainability maps, one can enforce that the prediction is made based on the right reasons (e.g., foreground vs. background) (iii) The cross-attention maps of multi-modal models can be used to guide generative models (e.g., mitigating neglect in Stable Diffusion).
+
+      </h2>
+	  </div>
+    </div>
+  </div>
+ <!--  </div> -->
+  </div>
+  </div>
+ <!--  </div> -->
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- div class="item">
+          <p style="margin-bottom: 30px">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/video.mp4"
+          type="video/mp4">
+        </video>
+        </p>
+        </div -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The attention mechanism has revolutionized deep learning research across many disciplines, starting from NLP and expanding to vision, speech, and more. Different from other mechanisms, the elegant and general attention mechanism is easily adaptable and eliminates modality-specific inductive biases. As attention become increasingly popular, it is crucial to develop tools that allow researchers to understand and explain the inner workings of the mechanism to facilitate better and more responsible use of it. This tutorial focuses on understanding and interpreting attention in the vision, and in the multi-modal settings combining text and vision. We present state-of-the-art research on representation probing, interpretability, and attention-based semantic guidance, alongside hands-on demos to facilitate interactivity. Additionally, we discuss open questions arising from recent works and future research directions.
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!--section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Video</h2>
+      <center>
+        <iframe width="630" height="354" src="https://www.youtube.com/embed/9EWs2IX4cus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </center>
+    </div>
+  </div>
+</section-->
+
+<!--section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Examples of Text-to-Image Generation with Attend-and-Excite</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/grizzly.jpg" alt="cars peace" width="800px"/>
+      </div>
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/elephant.jpg" alt="cars peace" width="800px"/>
+      </div>
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/dog_mouse.jpg" alt="cars peace" width="800px"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/picasso.jpg " alt="cars peace"  width="800px"/>
+	   </div>
+	   <div class="column is-centered has-text-centered">
+        <img src="static/figures/lion_glasses.jpg" alt="cars peace" width="800px"/>
+      </div>
+	   <div class="column is-centered has-text-centered">
+        <img src="static/figures/cake_tulips.jpg" alt="cars peace" width="800px"/>
+      </div>
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/swan_kitchen.jpg" alt="cars peace" width="800px"/>
+      </div>
+	   <div class="column is-centered has-text-centered">
+        <img src="static/figures/cat_dog.jpg" alt="cars peace" width="800px"/>
+      </div>
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/mouse_car.jpg" alt="cars peace" width="800px"/>
+      </div>
+	  <div class="column is-centered has-text-centered">
+        <img src="static/figures/dolphins.jpg" alt="cars peace" width="800px"/>
+      </div>
+  </div>
+</div>
+</div>
+</section-->
+
+
+
+
+
+
+
+<!--section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
+        <div class="content has-text-justified">
+        </div>
+		<div class="column is-centered has-text-centered">
+        <img src="static/figures/semantic_issues.png" alt="cars peace" width="700px"/>
+		</div>
+		<p class="content has-text-justified">
+            We observe two semantic issues of existing text-to-image models. 
+			First, catastrophic neglect, where one or more subjects is not generated by the model, such as the cat in the example on the left. 
+			Second, incorrect attribute bindings, where an attribute such as a color is incorrectly matched to a subject. In the example on the right, the bench is incorrectly colored yellow instead of brown. 
+  
+          </p>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/overview.png" alt="cars peace" width="700px"/>
+      </div>
+        <div class="content has-text-justified">
+          <p>
+			Text conditioning in Stable Diffusion is performed via the cross-attention mechanism. As illustrated on the second row, the attention matrix can be reshaped to obtain a spatial map per text token. Intuitively, for a token to be manifested in the generated image, there should be at least one patch in its map with a high activation value. Attend-and-Excite embodies this intuition by shifting the latent such that it is encouraged to attend to all subject tokens in the text.
+			<br>
+            Given a prompt (e.g., "A lion with a crown"), we extract the subject tokens (lion, crown), and their corresponding attention maps (second row). We apply a Gaussian kernel on each attention map to obtain smoothed attention maps that consider the neighboring patches. Our optimization enhances the maximal activation of the most neglected token at timestep t and updates the latent code accordingly (row 3). In other words, we shift the latent in the current timestep such that the attention maps for the updated latents attend to the most neglected token. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section --> 
+
+<!--section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Using Cross-Attention as Explanation</h2>
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/expl_cat_frog.png" width="400" class="is-centered"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/expl_elephant_crown.png" width="400" class="is-centered"/>
+        </div>
+		<div class="column is-centered has-text-centered">
+        <img src="static/figures/expl_turtle_bowl.png" width="400" class="is-centered"/>
+        </div>
+		<div class="column is-centered has-text-centered">
+        <img src="static/figures/expl_backpack_glasses.png" width="400" class="is-centered"/>
+        </div>
+    </div>
+  </div>
+
+</section-->
+
+
+
+
+
+
+
+<!--section class="hero is-small">
+
+  <div class="hero-body">
+    <div class="container">
+
+      <h2 class="title has-text-centered">Uncurated Results</h2>
+      <p style="margin-top: 30px; margin-bottom: 30px">
+          <div class="column is-centered has-text-centered">
+        <img src="static/figures/uncurated.jpg" alt="cars peace" width="800px"/>
+      </div>
+       </p>
+		<h2 class="subtitle is-centered has-text-centered">
+          Uncurated results with the same 8 random seeds comparing Stable Diffusion and Attend-and-Excite.
+        </h2>
+      </div>
+    </div>
+
+  </section-->
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
