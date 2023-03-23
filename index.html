@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <meta property="og:title" content="Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models"/>
+  <meta property="og:title" content="All Things ViTs: Understanding and Interpreting Attention in Vision"/>
   <meta property="og:url" content="https://attendandexcite.github.io/attend-and-excite/"/>
   <meta property="og:image" content="static/images/og_tag_header_image.jpg" />
   <meta property="og:image:width" content="1200"/>
@@ -139,18 +139,110 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <!-- div class="item">
-          <p style="margin-bottom: 30px">
-        <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <source src="static/figures/video.mp4"
-          type="video/mp4">
-        </video>
-        </p>
-        </div -->
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             The attention mechanism has revolutionized deep learning research across many disciplines, starting from NLP and expanding to vision, speech, and more. Different from other mechanisms, the elegant and general attention mechanism is easily adaptable and eliminates modality-specific inductive biases. As attention become increasingly popular, it is crucial to develop tools that allow researchers to understand and explain the inner workings of the mechanism to facilitate better and more responsible use of it. This tutorial focuses on understanding and interpreting attention in the vision, and in the multi-modal settings combining text and vision. We present state-of-the-art research on representation probing, interpretability, and attention-based semantic guidance, alongside hands-on demos to facilitate interactivity. Additionally, we discuss open questions arising from recent works and future research directions.
+
+          </p>
+        </div>
+        <h2 class="title is-3">Tutorial Outline</h2>
+        <div class="content has-text-justified">
+          <p>
+            The following is a tentative outline of the tutorial. We will publish the final outline soon.
+            <ul>
+              <li>
+                  <p>Overview of typical ways of interpreting CNNs - GradCAM, LRP, grad x input, SHAP, LIME, Integrated Gradients</p>
+              </li>
+              <li>Short introduction to Transformers
+                  <ul>
+                      <li>
+                          <p>The attention mechanism</p>
+                      </li>
+                      <li>
+                          <p>Positional encoding</p>
+                      </li>
+                      <li>
+                          <p>Integrating attention maps from different modalities via cross-attention</p>
+                      </li>
+                  </ul>
+              </li>
+              <li>Probing Transformers: understanding what Transformers learn from images [<a href="https://arxiv.org/abs/2010.11929">2</a>,&nbsp;<a href="https://arxiv.org/abs/2108.08810">3</a>,&nbsp;<a href="https://arxiv.org/abs/2103.17239">4</a>,&nbsp;<a href="https://arxiv.org/abs/2202.06709">5</a>]
+                  <ul>
+                      <li>
+                          <p>Mean attention distance (relative receptive field)</p>
+                      </li>
+                      <li>
+                          <p>Centered kernel alignment&nbsp;</p>
+                      </li>
+                      <li>
+                          <p>The role of skip connections</p>
+                      </li>
+                  </ul>
+              </li>
+              <li>Why do we need different methods to interpret Transformers?
+                  <ul>
+                      <li>
+                          <p>Is attention an explanation? If so, under what conditions?</p>
+                      </li>
+                  </ul>
+              </li>
+              <li>Explaining predictions made by Transformers (XAI)
+                  <ul>
+                      <li>Algorithms to explain attention
+                          <ul>
+                              <li>
+                                  <p>Attention rollout [<a href="https://arxiv.org/abs/2005.00928">1</a>]</p>
+                              </li>
+                              <li>
+                                  <p>Attention flow [<a href="https://arxiv.org/abs/2005.00928">1</a>]</p>
+                              </li>
+                              <li>
+                                  <p>Transformer Interpretability Beyond Attention Visualization [<a href="https://arxiv.org/abs/2012.09838">6</a>]</p>
+                              </li>
+                              <li>
+                                  <p>Understanding what Transformers learn from multiple modalities [<a href="https://arxiv.org/abs/2103.15679">7</a>]</p>
+                              </li>
+                          </ul>
+                      </li>
+                      <li>Attention as explanation
+                          <ul>
+                              <li>
+                                  <p>Class attention [<a href="https://arxiv.org/abs/2103.17239">4</a>]</p>
+                              </li>
+                              <li>
+                                  <p>Attention for semantic segmentation (DINO [<a href="https://arxiv.org/abs/2104.14294">8</a>])</p>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li>Open questions
+                  <ul>
+                      <li>
+                          <p>How do we evaluate these explainability methods?&nbsp;</p>
+                      </li>
+                      <li>
+                          <p>Are smaller Transformer models better than the larger ones as far as explainability is concerned?&nbsp;</p>
+                      </li>
+                      <li>
+                          <p>Is attention a good way to interpret Transformers in the first place?&nbsp;</p>
+                      </li>
+                      <li>
+                          <p>Why do methods for CNNs not perform well on Transformers? (e.g. the adaptation of GradCAM to Transformers does not seem to work, even though the intuition is rather similar)</p>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <p>Conclusion and Q&amp;A</p>
+              </li>
+          </ul>
+          </p>
+        </div>
+        <h2 class="title is-3">Logistics</h2>
+        <div class="content has-text-justified">
+          <p>
+            Coming soon.
 
           </p>
         </div>
@@ -160,155 +252,8 @@
   </div>
 </section>
 
-<!--section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Video</h2>
-      <center>
-        <iframe width="630" height="354" src="https://www.youtube.com/embed/9EWs2IX4cus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </center>
-    </div>
-  </div>
-</section-->
-
-<!--section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Examples of Text-to-Image Generation with Attend-and-Excite</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/grizzly.jpg" alt="cars peace" width="800px"/>
-      </div>
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/elephant.jpg" alt="cars peace" width="800px"/>
-      </div>
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/dog_mouse.jpg" alt="cars peace" width="800px"/>
-      </div>
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/picasso.jpg " alt="cars peace"  width="800px"/>
-	   </div>
-	   <div class="column is-centered has-text-centered">
-        <img src="static/figures/lion_glasses.jpg" alt="cars peace" width="800px"/>
-      </div>
-	   <div class="column is-centered has-text-centered">
-        <img src="static/figures/cake_tulips.jpg" alt="cars peace" width="800px"/>
-      </div>
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/swan_kitchen.jpg" alt="cars peace" width="800px"/>
-      </div>
-	   <div class="column is-centered has-text-centered">
-        <img src="static/figures/cat_dog.jpg" alt="cars peace" width="800px"/>
-      </div>
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/mouse_car.jpg" alt="cars peace" width="800px"/>
-      </div>
-	  <div class="column is-centered has-text-centered">
-        <img src="static/figures/dolphins.jpg" alt="cars peace" width="800px"/>
-      </div>
-  </div>
-</div>
-</div>
-</section-->
-
-
-
-
-
-
-
-<!--section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">How does it work?</h2>
-        <div class="content has-text-justified">
-        </div>
-		<div class="column is-centered has-text-centered">
-        <img src="static/figures/semantic_issues.png" alt="cars peace" width="700px"/>
-		</div>
-		<p class="content has-text-justified">
-            We observe two semantic issues of existing text-to-image models. 
-			First, catastrophic neglect, where one or more subjects is not generated by the model, such as the cat in the example on the left. 
-			Second, incorrect attribute bindings, where an attribute such as a color is incorrectly matched to a subject. In the example on the right, the bench is incorrectly colored yellow instead of brown. 
-  
-          </p>
-        <div class="column is-centered has-text-centered">
-        <img src="static/figures/overview.png" alt="cars peace" width="700px"/>
-      </div>
-        <div class="content has-text-justified">
-          <p>
-			Text conditioning in Stable Diffusion is performed via the cross-attention mechanism. As illustrated on the second row, the attention matrix can be reshaped to obtain a spatial map per text token. Intuitively, for a token to be manifested in the generated image, there should be at least one patch in its map with a high activation value. Attend-and-Excite embodies this intuition by shifting the latent such that it is encouraged to attend to all subject tokens in the text.
-			<br>
-            Given a prompt (e.g., "A lion with a crown"), we extract the subject tokens (lion, crown), and their corresponding attention maps (second row). We apply a Gaussian kernel on each attention map to obtain smoothed attention maps that consider the neighboring patches. Our optimization enhances the maximal activation of the most neglected token at timestep t and updates the latent code accordingly (row 3). In other words, we shift the latent in the current timestep such that the attention maps for the updated latents attend to the most neglected token. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section --> 
-
-<!--section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Using Cross-Attention as Explanation</h2>
-      
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_cat_frog.png" width="400" class="is-centered"/>
-        </div>
-        <div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_elephant_crown.png" width="400" class="is-centered"/>
-        </div>
-		<div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_turtle_bowl.png" width="400" class="is-centered"/>
-        </div>
-		<div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_backpack_glasses.png" width="400" class="is-centered"/>
-        </div>
-    </div>
-  </div>
-
-</section-->
-
-
-
-
-
-
-
-<!--section class="hero is-small">
-
-  <div class="hero-body">
-    <div class="container">
-
-      <h2 class="title has-text-centered">Uncurated Results</h2>
-      <p style="margin-top: 30px; margin-bottom: 30px">
-          <div class="column is-centered has-text-centered">
-        <img src="static/figures/uncurated.jpg" alt="cars peace" width="800px"/>
-      </div>
-       </p>
-		<h2 class="subtitle is-centered has-text-centered">
-          Uncurated results with the same 8 random seeds comparing Stable Diffusion and Attend-and-Excite.
-        </h2>
-      </div>
-    </div>
-
-  </section-->
-
-
 
 <footer class="footer">
- <!--  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
-      <i class="fas fa-file-pdf"></i>
-    </a>
-    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-      <i class="fab fa-github"></i>
-    </a>
-  </div> -->
   <div class="columns is-centered">
     <div class="column is-8">
       <div class="content">
