@@ -78,7 +78,7 @@
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
-                <span>Code</span>
+                <span>Code (coming soon)</span>
               </a>
               </span>
              <!--span class="link-block">
@@ -97,7 +97,7 @@
                 <span class="icon">
                     <i class="fas fa-laptop"></i>
                 </span>
-                <span>Demo</span>
+                <span>Demos</span>
               </a>
              </span>
            
@@ -119,10 +119,10 @@
       <div class="container">
       <div class="item">
       <div class="column is-centered has-text-centered">
-        <img src="static/figures/teaser.jpg" alt="All_Things_ViTs" width="750px"/>
+        <img src="static/figures/teaser.jpg" alt="All_Things_ViTs" width="850px"/>
       
       <h2 class="subtitle">
-	In this tutorial, we explore different ways to leverage attention in vision. From left to right: (i) attention can be used to explain the predictions by the model (e.g., CLIP for an image-text pair) (ii) By manipulating the attention-based explainability maps, one can enforce that the prediction is made based on the right reasons (e.g., foreground vs. background) (iii) The cross-attention maps of multi-modal models can be used to guide generative models (e.g., mitigating neglect in Stable Diffusion).
+	In this tutorial, we explore the use of attention in vision. From left to right: (i) attention can be used to explain the predictions by the model (e.g., CLIP for an image-text pair) (ii) Examples of probing attention-based models (iii) By manipulating the attention-based explainability maps, one can enforce that the prediction is made based on the right reasons (e.g., foreground vs. background) (iv) The cross-attention maps of multi-modal models can be used to guide generative models (e.g., mitigating neglect in Stable Diffusion).
 
       </h2>
 	  </div>
@@ -146,112 +146,91 @@
 
           </p>
         </div>
-        <h2 class="title is-3">Tutorial Outline</h2>
-        <div class="content has-text-justified">
-          <p>
-            The following is a tentative outline of the tutorial. We will publish the final outline soon.
-            <ul>
-              <li>
-                  <p>Overview of typical ways of interpreting CNNs - GradCAM, LRP, grad x input, SHAP, LIME, Integrated Gradients</p>
-              </li>
-              <li>Short introduction to Transformers
-                  <ul>
-                      <li>
-                          <p>The attention mechanism</p>
-                      </li>
-                      <li>
-                          <p>Positional encoding</p>
-                      </li>
-                      <li>
-                          <p>Integrating attention maps from different modalities via cross-attention</p>
-                      </li>
-                  </ul>
-              </li>
-              <li>Probing Transformers: understanding what Transformers learn from images [<a href="https://arxiv.org/abs/2010.11929">2</a>,&nbsp;<a href="https://arxiv.org/abs/2108.08810">3</a>,&nbsp;<a href="https://arxiv.org/abs/2103.17239">4</a>,&nbsp;<a href="https://arxiv.org/abs/2202.06709">5</a>]
-                  <ul>
-                      <li>
-                          <p>Mean attention distance (relative receptive field)</p>
-                      </li>
-                      <li>
-                          <p>Centered kernel alignment&nbsp;</p>
-                      </li>
-                      <li>
-                          <p>The role of skip connections</p>
-                      </li>
-                  </ul>
-              </li>
-              <li>Why do we need different methods to interpret Transformers?
-                  <ul>
-                      <li>
-                          <p>Is attention an explanation? If so, under what conditions?</p>
-                      </li>
-                  </ul>
-              </li>
-              <li>Explaining predictions made by Transformers (XAI)
-                  <ul>
-                      <li>Algorithms to explain attention
-                          <ul>
-                              <li>
-                                  <p>Attention rollout [<a href="https://arxiv.org/abs/2005.00928">1</a>]</p>
-                              </li>
-                              <li>
-                                  <p>Attention flow [<a href="https://arxiv.org/abs/2005.00928">1</a>]</p>
-                              </li>
-                              <li>
-                                  <p>Transformer Interpretability Beyond Attention Visualization [<a href="https://arxiv.org/abs/2012.09838">6</a>]</p>
-                              </li>
-                              <li>
-                                  <p>Understanding what Transformers learn from multiple modalities [<a href="https://arxiv.org/abs/2103.15679">7</a>]</p>
-                              </li>
-                          </ul>
-                      </li>
-                      <li>Attention as explanation
-                          <ul>
-                              <li>
-                                  <p>Class attention [<a href="https://arxiv.org/abs/2103.17239">4</a>]</p>
-                              </li>
-                              <li>
-                                  <p>Attention for semantic segmentation (DINO [<a href="https://arxiv.org/abs/2104.14294">8</a>])</p>
-                              </li>
-                          </ul>
-                      </li>
-                  </ul>
-              </li>
-              <li>Open questions
-                  <ul>
-                      <li>
-                          <p>How do we evaluate these explainability methods?&nbsp;</p>
-                      </li>
-                      <li>
-                          <p>Are smaller Transformer models better than the larger ones as far as explainability is concerned?&nbsp;</p>
-                      </li>
-                      <li>
-                          <p>Is attention a good way to interpret Transformers in the first place?&nbsp;</p>
-                      </li>
-                      <li>
-                          <p>Why do methods for CNNs not perform well on Transformers? (e.g. the adaptation of GradCAM to Transformers does not seem to work, even though the intuition is rather similar)</p>
-                      </li>
-                  </ul>
-              </li>
-              <li>
-                  <p>Conclusion and Q&amp;A</p>
-              </li>
-          </ul>
-          </p>
-        </div>
-        <h2 class="title is-3">Logistics</h2>
-        <div class="content has-text-justified">
-          <p>
-            Coming soon.
-
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
 </section>
 
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Tutorial Outline</h2>
+		
+		<div class="content has-text-justified">
+          <p>
+			 The following is an outline of the topics we will cover in the tutorial. A detailed description can be found <a href="https://docs.google.com/document/d/1AHYQyi5rvTGZC8kKS1TEOMewl5_b1M6gHrTyUt38oFs/edit#heading=h.4fa4qoz6sg55">in this document</a>.
+		  <h5 class="title is-5">Interpreting Attention</h5>
+		  
+		  <ul>
+              <li>
+                  Brief history of Interpretability for DNNs
+              </li>
+              <li>
+                  Attention vs. Convolutions
+              </li>
+			  <li>
+                  Using attention as an explanation
+              </li>
+          </ul>
+		  
+		  <h5 class="title is-5">Probing Attention</h5>
+		  
+		  <ul>
+              <li>
+                  Depth and Breadth of Attention Layers
+
+              </li>
+              <li>
+                  Representational Similarities between CNNs and Transformers
+              </li>
+			  <li>
+                  <p>Probing cross-attention</p>
+              </li>
+          </ul>
+		  
+		  <h5 class="title is-5">Leveraging Attention as Explanation </h5>
+		  
+		  <ul>
+              <li>
+                  Model debiasing
+              </li>
+              <li>
+                  Attention-based guidance
+              </li>
+          </ul>
+		  
+		  </p>
+		  
+		  
+        </div>
+		
+		<p class="content">
+      </div>
+    </div>
+  </div>
+</section> 
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+	<h2 class="title is-4 is-centered has-text-centered">References</h2>
+    <div class="columns is-centered has-text-centered">
+        
+        <div class="content has-text-justified">
+          <p>
+		    [1] <i>Generic Attention-model Explainability for Interpreting Bi-Modal and Encoder-Decoder Transformers, </i> <b> Chefer et al.</b>
+		   <br>
+            [2] <i>Do Vision Transformers See Like Convolutional Neural Networks?, </i> <b> Raghu et al.</b>
+		   <br>
+			[3] <i>What do Vision Transformers Learn? A Visual Exploration, </i> <b> Ghiasi et al.</b>
+		   <br>
+		   [4] <i>Quantifying Attention Flow in Transformers, </i> <b> Abnar et al.</b>
+		   <br>
+		   [5] <i>Optimizing Relevance Maps of Vision Transformers Improves Robustness, </i> <b> Chefer et al.</b>
+		   <br>
+
+          </p>
+        </div>
+		</div>
+</section>
 
 <footer class="footer">
   <div class="columns is-centered">
